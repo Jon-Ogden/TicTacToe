@@ -13,7 +13,7 @@ function updateO(pos,arr){
 function App() {
   return (
     <div>
-      <h1>Tic Tac Toe</h1>
+      <h1 className='title'>Tic Tac Toe</h1>
       <div className='container'>
       <button className='item'>{array[0]}</button>
       <button className='item'>{array[1]}</button>
@@ -25,7 +25,7 @@ function App() {
       <button className='item'>{array[7]}</button>
       <button className='item'>{array[8]}</button>
       </div>
-      <h3>Turn:</h3>
+      <h3 className='turn'>Turn:</h3>
     </div>
   );
 }
