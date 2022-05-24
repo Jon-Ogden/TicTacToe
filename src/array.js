@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-let array = ['','','','','','','','','']
 function updateX(pos,arr){
     arr.splice(pos,1,'X')
 }
@@ -7,9 +6,6 @@ function updateX(pos,arr){
 function updateO(pos,arr){
     arr.splice(pos,1,'O')
 }
-
-
-
 
 
 const Grid = ({arr})=>{
@@ -21,6 +17,20 @@ const Grid = ({arr})=>{
             setTurn('X')
         };
     };
+    let [gameState, setState] = useState('default')
+    let winConditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    function changeState(){
+        winConditions.forEach((win)=>{
+            if(arr[win[0]] =='X' && arr[win[1]] =='X' && arr[win[2]] =='X'){
+                setState('X Victory')
+            }
+            if(arr[win[0]] =='O' && arr[win[1]] =='O' && arr[win[2]] =='O'){
+                setState('O Victory')
+            }})
+            if(!arr.some((current) => {return current == ''})){
+                setState('Tied')
+            }
+        };
     function myTurn(value, grid,arr){
         if(value == ''){
             if(turn == 'X'){
@@ -29,7 +39,8 @@ const Grid = ({arr})=>{
             } else if(turn == 'O'){
                 updateO(grid, arr)
                 changeTurn()
-            }
+            } changeState()
+            console.log(gameState)
         } 
     }
     return (
