@@ -35,13 +35,12 @@ const Grid = ({arr})=>{
         if(value == ''){
             if(turn == 'X'){
                 updateX(grid,arr)
-                changeTurn()
             } else if(turn == 'O'){
                 updateO(grid, arr)
-                changeTurn()
-            } changeState()
-            console.log(gameState)
+            }
         } 
+        changeTurn()
+        changeState()
     }
     return (
         <div>
