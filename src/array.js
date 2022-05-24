@@ -33,14 +33,21 @@ const Grid = ({arr})=>{
         };
     function myTurn(value, grid,arr){
         if(value == ''){
+            if(gameState == 'default'){
             if(turn == 'X'){
                 updateX(grid,arr)
+                changeTurn()
+                changeState()
             } else if(turn == 'O'){
                 updateO(grid, arr)
-            }
+                changeTurn()
+                changeState()
+            }}
         } 
-        changeTurn()
-        changeState()
+
+    }
+    function reset(){
+        window.location.reload()
     }
     return (
         <div>
@@ -57,6 +64,7 @@ const Grid = ({arr})=>{
           <button className='item'onClick={()=>{myTurn(arr[8], 8,arr)}}>{arr[8]}</button>
           </div>
           <h3>Turn: {turn}</h3>
+          <button onClick={reset}>Reset</button>
         </div>
       );
 };
