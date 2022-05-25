@@ -23,9 +23,9 @@
   background-color: yellow;
 }
 
-.item:visited {
+/* .item:visited {
   background-color: purple;
-}
+} */
 
 .title {
   margin-left: 25px;
@@ -33,4 +33,9 @@
 
 .turn {
   margin-left: 25px;
+}
+
+.reset {
+  margin-left: 25px;
+  margin-bottom: 5px;
 }
